@@ -30,6 +30,9 @@ from ppocr.utils.save_load import load_model
 from ppocr.utils.logging import get_logger
 from tools.program import load_config, merge_config, ArgsParser
 
+config = ''
+trained_model = ''
+save_dir =''
 
 def export_single_model(model,
                         arch_config,
@@ -191,6 +194,7 @@ def export_single_model(model,
 
 def main():
     FLAGS = ArgsParser().parse_args()
+
     config = load_config(FLAGS.config)
     config = merge_config(config, FLAGS.opt)
     logger = get_logger()
